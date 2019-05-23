@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
+
+development:
+  <<: *default
+  database: toy_app_v2_development
+
+test:
+  <<: *default
+  database: toy_app_v2_test
+
+production:
+  <<: *default
+  database: toy_app_v2_production
+  username: toy_app_v2
+  password: <%= ENV['toy_app_v2_DATABASE_PASSWORD'] %>
